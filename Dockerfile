@@ -30,6 +30,6 @@ RUN apt update && apt install -y \
 
 WORKDIR /app
 
-COPY --from=builder /app/build/ventilator_controller:latest .
+COPY --from=builder /app/build/ventilator_controller .
 
 CMD ["./ventilator_controller"]
