@@ -16,7 +16,7 @@ COPY . .
 
 RUN cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 RUN cmake --build build -j2
-RUN find /app/build -type f -executable -print
+RUN find /app/build -type f -print
 
 # =========================
 # Étape runtime
