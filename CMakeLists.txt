@@ -10,6 +10,8 @@ add_executable(ventilator_controller
 	main.cpp
 )
 
+target_link_libraries(ventilator_controller PRIVATE gpiod)
+
 set_target_properties(ventilator_controller PROPERTIES
 	RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/$<CONFIG>"
 )
