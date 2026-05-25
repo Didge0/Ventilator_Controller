@@ -1,0 +1,16 @@
+services:
+  ventilator-controller:
+    container_name: ventilator_controller
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ventilator-controller:latest
+    restart: unless-stopped
+
+    # Access to GPIO on Raspberry Pi
+    privileged: true
+    devices:
+      - /dev/gpiomem:/dev/gpiomem
+      - /dev/gpiochip0:/dev/gpiochip0
+
+    command: ["./ventilator_controller"]
