@@ -16,7 +16,6 @@ COPY . .
 
 RUN cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 RUN cmake --build build -j2
-RUN find /app/build -type f -print
 
 # =========================
 # Étape runtime
@@ -30,6 +29,6 @@ RUN apt update && apt install -y \
 
 WORKDIR /app
 
-COPY --from=builder /app/build/ventilator_controller .
+COPY --from=builder /app/build/bin/Release/ventilator_controller .
 
 CMD ["./ventilator_controller"]
